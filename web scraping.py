@@ -24,11 +24,10 @@ def url_to_txt(url, filename='world.html',save=False):
 url = 'https://www.boxofficemojo.com/year/world/'
 
 
-def parse_and_extract(url, name='2019'):
+def parse_and_extract(url, name='2021'):
     html_text = url_to_txt(url)
     r_html = HTML(html=html_text)
     table_class = '.imdb-scroll-table'
-    # table_class = '#table' put '#' bcz its an id put '.' bcz its an class
     r_table = r_html.find(table_class)
     # print(r_table)
 
@@ -55,7 +54,7 @@ def parse_and_extract(url, name='2019'):
         df.to_csv(f'data/{name}.csv', index=False)
 
 
-url = 'https://www.boxofficemojo.com/year/world/2019'
+url = 'https://www.boxofficemojo.com/year/world/2021'
 parse_and_extract(url)
 
 
@@ -76,53 +75,6 @@ parse_and_extract(url)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import requests
-# import datetime
-#
-# now = datetime.datetime.now()
-# year = now.year
-#
-# # This code is only create a file and store data
-# def url_to_file(url, filename='world.html'):
-#     r = requests.get(url)
-#     if r.status_code == 200:
-#         html_text = r.text
-#         with open(f'world-{year}.html', 'w') as f:
-#             f.write(html_text)
-#         return html_text
-#     return ''
-#
-#
-# url = 'https://www.boxofficemojo.com/year/world/'
-#
-# url_to_file(url)
 
 
 
